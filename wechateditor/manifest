@@ -1,0 +1,12 @@
+appname="wechateditor"
+version="1.1.0"
+display_name="微信公众号编辑器"
+maintainer="Panda-995"
+maintainer_url="https://github.com/panda-995/wechat-editor"
+distributor="FnDepot Packager"
+desktop_uidir="ui"
+desktop_appname="wechateditor.Application"
+desc="专为微信公众号创作者打造的极致像素风Markdown编辑器，内置Google Gemini AI强大助手。"
+source=thirdparty
+arch=x86_64
+service_port=80

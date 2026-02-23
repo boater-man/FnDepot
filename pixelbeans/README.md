@@ -18,9 +18,9 @@ PixelBeans 是一款功能强大的拼豆（Perler Beads）底稿生成器，专
 
 ## [📦] 安装方法
 
-1. 添加该仓库到FNDEPOT三方应用市场"PixelBeans"安装
-2. 下载本目录的 `.fpk` 文件到飞牛系统手动安装
-3. 使用 Docker 镜像运行：
+1. 在飞牛系统应用中心搜索"PixelBeans"安装
+2. 或下载本目录的 `.fpk` 文件到飞牛系统手动安装
+3. 或使用 Docker 镜像运行：
    ```bash
    docker run -d -p 3000:3000 --name pixelbeans ghcr.io/boater-man/pixelbeans:latest
    ```
@@ -41,6 +41,10 @@ PixelBeans 是一款功能强大的拼豆（Perler Beads）底稿生成器，专
 - **样式**：Tailwind CSS 4
 - **核心**：Canvas API 用于图像处理
 - **部署**：Docker 容器化部署
+
+## [📸] 预览效果
+
+![PixelBeans 预览](Preview/image-1.png)
 
 ## [🔗] 相关链接
 

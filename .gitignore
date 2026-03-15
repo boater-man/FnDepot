@@ -1,0 +1,25 @@
+# Git LFS
+*.fpk
+
+# Build artifacts
+*.tgz
+*.tar
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Temporary files
+tmp/
+temp/
+
+# Large files
+comission/comission.fpk
+pixelbeans/pixelbeans.fpk

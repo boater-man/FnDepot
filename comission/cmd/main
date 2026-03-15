@@ -1,2 +1,82 @@
 #!/bin/bash
-echo "CoMission 安装脚本"
+
+# CoMission 安装脚本
+# 自动拉取 Docker 镜像并创建容器
+
+APP_NAME="comission"
+IMAGE="ghcr.io/boater-man/comission:latest"
+PORT="3000"
+
+echo "================================"
+echo "  CoMission 安装程序"
+echo "================================"
+echo ""
+
+# 检查 Docker 是否安装
+if ! command -v docker &> /dev/null; then
+    echo "错误：未检测到 Docker，请先安装 Docker"
+    exit 1
+fi
+
+echo "✓ Docker 已安装"
+
+# 拉取镜像
+echo ""
+echo "正在拉取 Docker 镜像..."
+docker pull $IMAGE
+
+if [ $? -ne 0 ]; then
+    echo "错误：镜像拉取失败"
+    exit 1
+fi
+
+echo "✓ 镜像拉取成功"
+
+# 停止旧容器
+echo ""
+echo "检查是否有旧版本..."
+docker stop $APP_NAME 2>/dev/null
+docker rm $APP_NAME 2>/dev/null
+
+# 创建数据目录
+DATA_DIR="/var/packages/${APP_NAME}/data"
+UPLOAD_DIR="/var/packages/${APP_NAME}/uploads"
+
+mkdir -p $DATA_DIR
+mkdir -p $UPLOAD_DIR
+
+echo "✓ 数据目录已创建"
+
+# 启动容器
+echo ""
+echo "正在启动容器..."
+docker run -d \
+  --name $APP_NAME \
+  -p ${PORT}:3000 \
+  -v ${DATA_DIR}:/app/data \
+  -v ${UPLOAD_DIR}:/app/uploads \
+  -e NODE_ENV=production \
+  --restart unless-stopped \
+  $IMAGE
+
+if [ $? -ne 0 ]; then
+    echo "错误：容器启动失败"
+    exit 1
+fi
+
+echo "✓ 容器启动成功"
+echo ""
+echo "================================"
+echo "  安装完成！"
+echo "================================"
+echo ""
+echo "访问地址：http://localhost:${PORT}"
+echo ""
+echo "管理命令:"
+echo "  启动：docker start $APP_NAME"
+echo "  停止：docker stop $APP_NAME"
+echo "  重启：docker restart $APP_NAME"
+echo "  日志：docker logs -f $APP_NAME"
+echo ""
+
+exit 0

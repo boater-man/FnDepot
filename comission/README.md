@@ -1,31 +1,36 @@
 # CoMission 双人任务协作应用
 
 > **版本**: 1.3.1  
-> **类型**: Docker 应用  
-> **大小**: 14KB (配置包)
+> **大小**: 15KB (FPK 安装包)  
+> **Docker 镜像**: 约 489MB（安装时自动拉取）
 
 ## 📦 安装方法
 
-### 方式一：FPK 安装（推荐）
+### 方式一：FPK 手动安装（推荐）
 
-1. 下载 `comission.fpk`（仅 14KB）
-2. 在 FNOS 应用管理中选择"手动安装"
-3. 上传 FPK 文件
-4. 系统自动拉取 Docker 镜像（约 489MB）
+1. 下载 `comission.fpk` 文件（15KB）
+2. 登录 FNOS 系统管理后台
+3. 进入「应用管理」→「手动安装」
+4. 上传 `comission.fpk` 文件
+5. 等待 Docker 镜像自动拉取（约 489MB）
+6. 安装完成后访问 http://localhost:3000
 
 ### 方式二：Docker 命令
 
 ```bash
 docker run -d \
+  --name comission \
   -p 3000:3000 \
   -v ./data:/app/data \
   -v ./uploads:/app/uploads \
   -e NODE_ENV=production \
-  --name comission \
+  --restart unless-stopped \
   ghcr.io/boater-man/comission:latest
 ```
 
 ### 方式三：Docker Compose
+
+创建 `docker-compose.yml`：
 
 ```yaml
 version: '3.8'
@@ -33,6 +38,7 @@ version: '3.8'
 services:
   comission:
     image: ghcr.io/boater-man/comission:latest
+    container_name: comission
     ports:
       - "3000:3000"
     volumes:
@@ -41,6 +47,11 @@ services:
     environment:
       - NODE_ENV=production
     restart: unless-stopped
+```
+
+运行：
+```bash
+docker compose up -d
 ```
 
 ## ✨ 功能特性
@@ -52,7 +63,7 @@ services:
 - 实时同步：任务状态变更即时通知
 
 ### 🛒 积分商城
-- 商品管理：创建/编辑/删除
+- 商品管理：创建/编辑/删除商品
 - 兑换流程：确认弹窗→自动下架→订单生成
 - 订单管理：我买到的/我卖出的
 - 物流跟踪：待发货→已发货→已收货
@@ -67,17 +78,6 @@ services:
 - 任务审核通知
 - 确认收货通知
 - 点击跳转处理
-
-## 🔋 技术栈
-
-| 层级 | 技术 |
-|------|------|
-| 前端 | React 18 + TypeScript + Vite |
-| UI | Tailwind CSS + Radix UI |
-| 后端 | Node.js + Express |
-| 实时 | Socket.IO |
-| 数据库 | SQLite |
-| 容器 | Docker |
 
 ## 📝 版本历史
 
@@ -97,10 +97,32 @@ services:
 
 ## ⚠️ 注意事项
 
-1. **首次启动**: 需要拉取 Docker 镜像（约 489MB），可能需要 10-30 秒
-2. **退出组队**: 将清空双方所有积分
-3. **商品兑换**: 兑换后自动下架
-4. **网络要求**: 需要能访问 GitHub Container Registry
+1. **首次安装**: 需要拉取 Docker 镜像（约 489MB），可能需要 10-30 秒
+2. **端口占用**: 确保 3000 端口未被占用
+3. **退出组队**: 将清空双方所有积分
+4. **商品兑换**: 兑换后自动下架
+
+## 🔧 管理命令
+
+```bash
+# 查看运行状态
+docker ps | grep comission
+
+# 查看日志
+docker logs -f comission
+
+# 重启应用
+docker restart comission
+
+# 停止应用
+docker stop comission
+
+# 启动应用
+docker start comission
+
+# 删除应用
+docker rm comission
+```
 
 ## 🔗 相关链接
 

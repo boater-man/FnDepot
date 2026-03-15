@@ -1,16 +1,16 @@
 appname               = comission
 version               = 1.3.1
 display_name          = CoMission 双人任务协作
-desc                  = <p><strong>[😍] 简介：</strong> CoMission 是一款专为双人协作设计的任务管理应用，通过积分激励和实时通信，让两人之间的任务协作更加高效有趣。</p><p><strong>[✨] 功能：</strong></p><ul><li>任务发布与协作</li><li>积分商城系统</li><li>实时通知中心</li><li>订单管理</li><li>积分记录统计</li></ul><p><strong>[🔋] 开源：</strong><a href="https://github.com/boater-man/comission" target="_blank">GitHub</a></p>
+desc                  = <p><strong>[😍] 简介：</strong> CoMission 是一款专为双人协作设计的任务管理应用。</p><p><strong>[✨] 功能：</strong></p><ul><li>任务发布与协作</li><li>积分商城系统</li><li>实时通知中心</li><li>订单管理</li></ul><p><strong>[🔋] 开源：</strong><a href="https://github.com/boater-man/comission" target="_blank">GitHub</a></p>
 platform              = all
-source                = thirdparty
+source                = docker
 maintainer            = boater-man
 maintainer_url        = https://github.com/boater-man
 distributor           = boater-man
 distributor_url       = https://github.com/boater-man
-desktop_uidir         = ui
-desktop_applaunchname = comission.cgi.Application
-service_port          = 3000
+docker_image          = ghcr.io/boater-man/comission:latest
+docker_ports          = 3000
+docker_volumes        = /app/data:/app/data,/app/uploads:/app/uploads
 checkport             = true
 changelog             = 1. 初始版本发布 2. 支持双人任务协作 3. 积分商城系统 4. 实时通知中心
-checksum              = ff3ab875f7c2baedc80107c80853f0a2
+checksum              = none

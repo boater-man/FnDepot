@@ -20,6 +20,5 @@ Thumbs.db
 tmp/
 temp/
 
-# Large files
-comission/comission.fpk
-pixelbeans/pixelbeans.fpk
+# Large files (>100MB)
+# comission/comission.fpk - Now small enough to include

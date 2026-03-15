@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  comission:
+    image: ghcr.io/boater-man/comission:latest
+    container_name: comission
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./data:/app/data
+      - ./uploads:/app/uploads
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped

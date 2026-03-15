@@ -1,3 +1,22 @@
-[comission]
-path=/app
-port=3000
+{
+    "docker-project": {
+        "projects": [
+            {
+                "name": "comission",
+                "path": "docker"
+            }
+        ]
+    },
+    "data-share": {
+        "shares": [
+            {
+                "name": "comission-data",
+                "permission": {
+                    "rw": [
+                        "comission"
+                    ]
+                }
+            }
+        ]
+    }
+}

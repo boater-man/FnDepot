@@ -1,1 +1,11 @@
-{"steps":[]}
+[
+    {
+        "stepTitle": "欢迎安装",
+        "items": [
+            {
+                "type": "tips",
+                "helpText": "欢迎安装 CoMission 双人任务协作应用！本应用需要 Docker 环境，安装后自动拉取镜像（约 489MB）。"
+            }
+        ]
+    }
+]

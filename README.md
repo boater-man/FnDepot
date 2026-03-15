@@ -1,7 +1,7 @@
 # FnDepot 应用源
 
-> **版本**: 1.0.0
-> **最后更新**: 2026-03-15
+> **版本**: 1.0.1
+> **最后更新**: 2026-03-16
 
 FnDepot 是运行于 FNOS 上的去中心化第三方应用管理器。本仓库包含以下应用：
 
@@ -33,7 +33,7 @@ FnDepot 是运行于 FNOS 上的去中心化第三方应用管理器。本仓库
 
 #### PixelBeans
 ```bash
-docker run -d -p 3000:3000 --name pixelbeans ghcr.io/boater-man/pixelbeans:latest
+docker run -d -p 23001:23001 --name pixelbeans ghcr.io/boater-man/pixelbeans:latest
 ```
 
 #### CoMission
@@ -52,15 +52,28 @@ FnDepot/
 ├── LAW.md               # 构建规范文档
 ├── pixelbeans/          # PixelBeans 应用目录
 │   ├── ICON.PNG
+│   ├── ICON_256.PNG
 │   ├── pixelbeans.fpk
 │   ├── README.md
 │   └── Preview/
 └── comission/           # CoMission 应用目录
     ├── ICON.PNG
+    ├── ICON_256.PNG
     ├── comission.fpk
     ├── README.md
     └── Preview/
 ```
+
+---
+
+## 更新日志
+
+### 2026-03-16
+- 修复 CoMission FPK 打包问题
+  - 添加缺失的 ICON_256.PNG 图标文件
+  - 修复 config/resource 和 config/privilege JSON 格式
+  - 修复 wizard/install 和 wizard/uninstall 格式
+  - 添加 app/docker/docker-compose.yaml
 
 ---
 

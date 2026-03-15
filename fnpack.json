@@ -2,7 +2,7 @@
   "pixelbeans": {
     "display_name": "PixelBeans",
     "desc": "功能强大的拼豆底稿生成器，支持图片像素化、多色板映射、智能颜色合并、背景移除和图纸导出",
-    "labels": "工具，图像处理，拼豆，像素画，设计",
+    "labels": "工具,图像处理,拼豆,像素画,设计",
     "version": "1.0.4",
     "author": "Zippland",
     "author_url": "https://github.com/boater-man",
@@ -16,17 +16,13 @@
   "comission": {
     "display_name": "CoMission 双人任务协作",
     "desc": "专为双人协作设计的任务管理应用，支持任务发布、积分商城、实时通知、订单管理、组队系统等功能",
-    "labels": "工具，协作，任务管理，积分系统，双人",
+    "labels": "工具,协作,任务管理,积分系统,双人",
     "version": "1.3.1",
     "author": "boater-man",
     "author_url": "https://github.com/boater-man",
     "bug_report_url": "https://github.com/boater-man/comission/issues",
     "install_type": "存储空间",
     "size": "15",
-    "port": "3000",
-    "docker_image": "ghcr.io/boater-man/comission:latest",
-    "docker_size": "489MB",
-    "dependencies": ["nodejs_v22", "docker"],
     "history": {
       "1.3.1": "优化通知系统，修复编辑弹窗问题，任务大厅默认待接受，商城默认显示可兑换商品"
     }

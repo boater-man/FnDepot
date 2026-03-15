@@ -15,16 +15,20 @@
   },
   "comission": {
     "display_name": "CoMission 双人任务协作",
-    "desc": "专为双人协作设计的任务管理应用，支持任务发布、积分商城、实时通知、订单管理等功能",
-    "labels": "工具，协作，任务管理，积分系统",
+    "desc": "专为双人协作设计的任务管理应用，支持任务发布、积分商城、实时通知、订单管理、组队系统等功能",
+    "labels": "工具，协作，任务管理，积分系统，双人",
     "version": "1.3.1",
     "author": "boater-man",
-    "author_url": "https://github.com/boater-man/comission",
+    "author_url": "https://github.com/boater-man",
     "bug_report_url": "https://github.com/boater-man/comission/issues",
     "install_type": "存储空间",
-    "size": "100",
+    "size": "15",
+    "port": "3000",
+    "docker_image": "ghcr.io/boater-man/comission:latest",
+    "docker_size": "489MB",
+    "dependencies": ["nodejs_v22", "docker"],
     "history": {
-      "1.3.1": "初始版本发布，支持双人任务协作、积分商城、通知中心"
+      "1.3.1": "优化通知系统，修复编辑弹窗问题，任务大厅默认待接受，商城默认显示可兑换商品"
     }
   }
 }
